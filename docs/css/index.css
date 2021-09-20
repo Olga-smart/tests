@@ -308,17 +308,26 @@ button {
   display: flex;
   align-items: stretch;
 }
-.test-main__container_4-8 {
+.test-main__container {
   display: grid;
-  grid-template-columns: 4fr 8fr;
   grid-template-rows: auto 1fr;
   grid-gap: 1.43rem;
+}
+.test-main__container_4-8 {
+  grid-template-columns: 4fr 8fr;
+}
+.test-main__container_5-7 {
+  grid-template-columns: 5fr 7fr;
 }
 
 .card {
   background-color: #fff;
   border-radius: 0.86rem;
   padding: 1.43rem;
+}
+
+.img-fluid {
+  max-width: 100%;
 }
 
 .description-card {
@@ -378,6 +387,9 @@ button {
 .description-card__tip-icon:hover + .description-card__tip-text {
   opacity: 1;
 }
+.description-card p {
+  margin-bottom: 1.43rem;
+}
 
 .question-card {
   grid-row: 1/2;
@@ -428,6 +440,20 @@ button {
 .answers-card__checkbox-card-input:hover + label {
   color: #2A2A2A;
 }
+.answers-card__checkbox-img-input {
+  display: none;
+}
+.answers-card__checkbox-img-input:checked + label {
+  outline: 1px solid #EBEBEB;
+  outline-offset: 6px;
+}
+.answers-card__checkbox-img-label {
+  display: block;
+  cursor: pointer;
+}
+.answers-card__checkbox-img-img {
+  display: block;
+}
 .answers-card_tile-2-col {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -438,12 +464,24 @@ button {
     grid-template-columns: 1fr;
   }
 }
+.answers-card_tile-4-col {
+  display: grid;
+  align-content: start;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 1.43rem;
+}
+@media (max-width: 575px) {
+  .answers-card_tile-4-col {
+    grid-template-columns: 1fr;
+  }
+}
 
 .progress__progress {
   width: 100%;
   height: 0.29rem;
   background-color: #C2C2C2;
   margin-bottom: 1.29rem;
+  border: none;
 }
 .progress__progress::-webkit-progress-bar {
   background-color: #C2C2C2;

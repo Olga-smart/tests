@@ -330,12 +330,19 @@ button {
   display: flex;
   align-items:stretch;
   &__container {
-    &_4-8 {
-      display: grid;
+    display: grid;
       grid: {
-        template-columns: 4fr 8fr;
         template-rows: auto 1fr;
         gap: 1.43rem;
+      }
+    &_4-8 {
+      grid: {
+        template-columns: 4fr 8fr;
+      }
+    }
+    &_5-7 {
+      grid: {
+        template-columns: 5fr 7fr;
       }
     }
   }
@@ -345,6 +352,10 @@ button {
   background-color: #fff;
   border-radius: 0.86rem;
   padding: 1.43rem;
+}
+
+.img-fluid {
+  max-width: 100%;
 }
 
 .description-card {
@@ -407,6 +418,9 @@ button {
       opacity: 1;
     }
   }
+  p {
+    margin-bottom: 1.43rem;
+  }
 }
 
 .question-card {
@@ -460,10 +474,40 @@ button {
       }
     }
   }
+  &__checkbox-img {
+    &-input {
+      display: none;
+      &:checked + label {
+        outline: 1px solid $light-gray {
+          offset: 6px;
+        }
+      }
+    }
+    &-label {
+      display: block;
+      cursor: pointer;
+    }
+    &-img {
+      display: block;
+    }
+  }
   &_tile-2-col {
     display: grid;
     grid: {
       template-columns: 1fr 1fr;
+      gap: 1.43rem;
+    }
+    @include media-breakpoint-down($xs) {
+      grid: {
+        template-columns: 1fr;
+      }
+    }
+  }
+  &_tile-4-col {
+    display: grid;
+    align-content: start;
+    grid: {
+      template-columns: 1fr 1fr 1fr 1fr;
       gap: 1.43rem;
     }
     @include media-breakpoint-down($xs) {
@@ -480,6 +524,7 @@ button {
     height: 0.29rem;
     background-color: $gray;
     margin-bottom: 1.29rem;
+    border: none;
     &::-webkit-progress-bar  {
       background-color: $gray;
     }
