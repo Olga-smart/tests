@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/index.css">
+  <title>Test</title>
+</head>
+<body>
+
+<header class="test-header">
+  <div class="container test-header__container">
+    <div class="user-menu">
+      <div class="user-menu__avatar">IF</div>
+      <span class="user-menu__name">Фамилия Имя</span>
+      <button class="user-menu__log-out-btn">
+        <span class="user-menu__log-out-btn-text">Log out</span>
+        <img class="user-menu__log-out-btn-icon" src="img/logout.svg">
+      </button>
+    </div>
+    <div class="timer timer_green test-header__timer">
+      <div class="timer__content-wrapper">
+        <span>осталось</span>
+        <span class="timer__time">02:23</span>
+      </div>
+    </div>
+    <h1 class="test-header__heading">Название теста. <span class="test-header__sub-heading">Подзаголовок</span></h1>
+  </div>
+</header>
+
+<main class="test-main">
+  <div class="container test-main__container_4-8">
+    <div class="card description-card">
+      <div class="description-card__text">
+        <p>Первообразная функция, в первом приближении, отражает предел последовательности. Первая производная изящно нейтрализует абстрактный разрыв функции, явно демонстрируя всю чушь вышесказанного. Несмотря на сложности, интеграл Пуассона правомочен. Высшая арифметика допускает определитель системы линейных уравнений. Наряду с этим, скалярное поле стабилизирует Наибольший Общий Делитель (НОД).</p>
+      </div>
+      <div class="description-card__tip">
+        <div class="description-card__tip-icon">?</div>
+        <div class="description-card__tip-text">Текстовое поле с пояснениями к кейсу, пример выделен красным на отдельном скрине. Пояснения могут быть краткими, в пару слов, а могут быть и в районе абзаца</div>
+      </div>
+    </div>
+    <div class="card question-card">
+      <p class="question-card__question-word">Вопрос:</p>
+      <p>«Тригонометрический критерий интегрируемости: двойной интеграл или сумма ряда?»</p>
+    </div>
+    <form class="card answers-card answers-card_tile-2-col">
+      <div>
+        <input id="answer1" class="answers-card__checkbox-card-input" type="checkbox" name="1" value="2">
+        <label for="answer1" class="answers-card__checkbox-card">Наибольшее и наименьшее значения функции уравновешивает эмпирический предел последовательности, откуда следует доказываемое равенство.</label> 
+      </div>
+      <div>
+        <input id="answer2" class="answers-card__checkbox-card-input" type="checkbox" name="2" value="2" checked>
+        <label for="answer2" class="answers-card__checkbox-card">Правда, некоторые специалисты отмечают, что неопределенный интеграл вполне вероятен.</label>  
+      </div>
+      <div>
+        <input id="answer3" class="answers-card__checkbox-card-input" type="checkbox" name="3" value="3">
+        <label for="answer3" class="answers-card__checkbox-card">Разрыв функции, очевидно, раскручивает косвенный определитель системы линейных уравнений.</label> 
+      </div>
+      <div>
+        <input id="answer4" class="answers-card__checkbox-card-input" type="checkbox" name="4" value="4">
+        <label for="answer4" class="answers-card__checkbox-card">Лист Мёбиуса продуцирует интеграл по поверхности. Постулат ускоряет экспериментальный лист Мёбиуса.</label> 
+      </div>
+      <div>
+        <input id="answer5" class="answers-card__checkbox-card-input" type="checkbox" name="5" value="5" checked>
+        <label for="answer5" class="answers-card__checkbox-card">Дифференциальное исчисление программирует многомерный постулат.</label> 
+      </div>
+      <div>
+        <input id="answer6" class="answers-card__checkbox-card-input" type="checkbox" name="6" value="6">
+        <label for="answer6" class="answers-card__checkbox-card">Умножение двух векторов (векторное), не вдаваясь в подробности, притягивает косвенный детерминант.</label> 
+      </div>
+    </form>
+  </div>
+</main>
+
+<footer class="test-footer">
+  <div class="container container_10-2">
+    <div class="progress">
+      <progress class="progress__progress" max="15" value="12"></progress>
+      <span class="progress__sign">прогресс 12
+        <span class="progress__sign-span">/15</span>
+      </span>
+    </div>
+    <div class="test-footer__button-wrapper">
+      <button class="button button_green test-footer__button">Далее</button>
+    </div>        
+  </div>
+</footer>
+
+</body>
+</html>

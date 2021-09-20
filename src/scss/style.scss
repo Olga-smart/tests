@@ -1,0 +1,529 @@
+// Colors
+$green: #3BCBB2;
+$red: #FF5D47;
+$yellow: #FFCC47;
+$black: #2A2A2A;
+$gray: #C2C2C2;
+$light-gray: #EBEBEB;
+$background-color: #F0F0F0; 
+
+// Screen sizes
+$xxs: 320px;
+$xs: 575px;
+$sm: 767px;
+$md: 991px;
+$lg: 1199px;
+$xl: 1440px;
+
+$shadow: 0 4px 4px 0 rgba(0,0,0,0.15);
+
+@font-face {
+  font-family: 'Rubik';
+  src: url('../fonts/Rubik-Regular.woff') format('woff'),
+    url('../fonts/Rubik-Regular.ttf') format('truetype'), 
+    url('../fonts/Rubik-Regular.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Rubik';
+  src: url('../fonts/Rubik-Medium.woff') format('woff'),
+    url('../fonts/Rubik-Medium.ttf') format('truetype'), 
+    url('../fonts/Rubik-Medium.svg') format('svg');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@mixin media-breakpoint-up($width) {
+  @media (min-width: $width + 1) {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-down($width) {
+  @media (max-width: $width) {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-between($min-width, $max-width) {
+  @media (min-width: $min-width + 1) and (max-width: $max-width) {
+    @content;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: 'Rubik', 'Montserrat', 'Arial', sans-serif;
+  font-size: 14px;
+  line-height: 1.43;
+  color: $black;
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  background-color: $background-color;
+}
+
+input,
+button,
+textarea,
+select {
+  font-family: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.container {
+  min-width: 320px;
+  max-width: 1920px;
+  padding: {
+    left: 5rem;
+    right: 5rem;
+  }
+  margin-right: auto;
+  margin-left: auto;
+  @include media-breakpoint-down($md) {
+    padding: {
+      left: 2rem;
+      right: 2rem;
+    };
+  }
+  @include media-breakpoint-down($sm) {
+    padding: {
+      left: 1rem;
+      right: 1rem;
+    };
+  }
+  &_10-2 {
+    display: grid;
+    grid: {
+      template-columns: 10fr 2fr;
+      template-rows: auto 1fr;
+      gap: 1.43rem;
+    }
+    align-items: center;
+  }
+}
+
+.test-header {
+  background-color: #fff;
+  &__container {
+    display: grid;
+    grid-template-columns: 9fr 3fr;
+    grid-template-rows: auto auto;
+    column-gap: 1.43rem;
+    row-gap: 2.07rem;
+    @include media-breakpoint-down($lg) {
+      grid-template-columns: 11fr 1fr;
+      gap: 1.43rem;
+    }
+    @include media-breakpoint-down($sm) {
+      gap: 1rem;
+    }
+  }
+  &__heading {
+    color: $green;
+    font: {
+      weight: 500;
+      size: 2.43rem;
+    }
+    line-height: 1.19;
+    padding-bottom: 2.29rem;
+    @include media-breakpoint-down($md) {
+      font-size: 2rem;
+      padding-bottom: 1.5rem;
+    }
+    @include media-breakpoint-down($sm) {
+      grid-column: 1/3;
+    }
+    @include media-breakpoint-down($xs) {
+      font-size: 1.5rem;
+    }
+  }
+  &__sub-heading {
+    color: $black;
+  }
+  &__timer {
+    grid-row: 1/3;
+    grid-column: 2/3;
+    @include media-breakpoint-down($sm) {
+      grid-row: 1/2;
+    }
+  }
+}
+
+.user-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1.43rem;
+  @include media-breakpoint-down($md) {
+    padding-top: 1rem;
+  }
+  @include media-breakpoint-down($sm) {
+    padding-top: 0;
+  }
+  &__avatar {
+    width: 4.21rem;
+    height: 4.21rem;
+    object-fit: cover;
+    border: 1px solid $green {
+      radius: 50%;
+    }
+    background-color: rgba($green, 0.15);
+    color: $green;
+    font: {
+      weight: 500;
+      size: 1.14rem;
+    }
+    text-align: center;
+    line-height: calc(4.21rem - 2px);
+    margin-right: 0.93rem;
+    flex-shrink: 0;
+    @include media-breakpoint-down($xs) {
+      width: 3.5rem;
+      height: 3.5rem;
+      line-height: calc(3.5rem - 2px);
+    }
+  }
+  &__name {
+    font: {
+      weight: 500;
+      size: 1.43rem;
+    }
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-column-gap: 2.93rem;
+    align-items: center;
+    line-height: 1;
+    @include media-breakpoint-down($sm) {
+      font-size: 1.2rem;
+    }
+    @include media-breakpoint-down($xs) {
+      display: none;
+    }
+    &::after {
+      content: '';
+      display: block;
+      background-color: $light-gray;
+      height: 1px;
+      @include media-breakpoint-down($md) {
+        display: none;
+      }
+    }
+  }
+  &__log-out-btn {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-column-gap: 0.36rem;
+    align-items: center;
+    border: none;
+    color: $gray;
+    font-size: 1.14rem;
+    line-height: 1.43rem;
+    background-color: transparent;
+    margin-left: 3.71rem;
+    @include media-breakpoint-down($sm) {
+      font-size: 1rem;
+    }
+    &-text {
+      @include media-breakpoint-down($sm) {
+        display: none;
+      }
+    }
+    &-icon {
+      width: 1.43rem;
+      @include media-breakpoint-down($sm) {
+        width: 2rem;
+      }
+    }
+  } 
+}
+
+.timer {
+  border-top: {
+    width: 0.29rem;
+    style: solid;
+  };
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1;
+  padding: 2.93rem;
+  font: {
+    weight: 500;
+    size: 1.43rem;
+  }
+  @include media-breakpoint-down($lg) {
+    padding: 2rem;
+  }
+  @include media-breakpoint-down($sm) {
+    padding: 1rem 1.8rem;
+    font-size: 1rem;
+  }
+  @include media-breakpoint-down($xs) {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+  }
+  &__content-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  &__time {
+    font: {
+      weight: 500;
+      size: 5.71rem;
+    }
+    position: relative;
+    left: -4px;
+    @include media-breakpoint-down($lg) {
+      font-size: 5rem;
+    }
+    @include media-breakpoint-down($md) {
+      font-size: 4rem;
+    }
+    @include media-breakpoint-down($sm) {
+      font-size: 3rem;
+    }
+    @include media-breakpoint-down($xs) {
+      font-size: 2rem;
+    }
+  }
+  &_green {
+    border-top: {
+      color: $green;
+    };
+    background-image: linear-gradient(rgba($green, 0.15), transparent);
+  }
+  &_yellow {
+    border-top: {
+      color: $yellow;
+    };
+    background-image: linear-gradient(rgba($yellow, 0.15), transparent);
+  }
+  &_red {
+    border-top: {
+      color: $red;
+    };
+    background-image: linear-gradient(rgba($red, 0.15), transparent);
+  }
+}
+
+.test-main {
+  padding-top: 1.43rem;
+  padding-bottom: 1.43rem;
+  display: flex;
+  align-items:stretch;
+  &__container {
+    &_4-8 {
+      display: grid;
+      grid: {
+        template-columns: 4fr 8fr;
+        template-rows: auto 1fr;
+        gap: 1.43rem;
+      }
+    }
+  }
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 0.86rem;
+  padding: 1.43rem;
+}
+
+.description-card {
+  grid-row: 1/3;
+  grid-column: 1/2;
+  @include media-breakpoint-down($sm) {
+    grid: {
+      column: 1/3;
+      row: 1/2;
+    } 
+  }
+  &__text {
+    margin-bottom: 2.14rem;      
+  }
+  &__tip {
+    display: flex;
+    &-icon {
+      width: 1.43rem;
+      height: 1.43rem;
+      border: 1px solid $green {
+        radius: 50%
+      }
+      color: $green;
+      text-align: center;
+      line-height: 1.43rem;
+      background-color: rgba($green, 0.15);
+      margin-right: 0.43rem;
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+    &-text {
+      border: 1px solid $green {
+        radius: 0.57rem;
+      }
+      padding: 0.36rem;
+      color: $green;
+      font-size: 0.86rem;
+      background-image: linear-gradient(rgba($green, 0.15), transparent);
+      position: relative;
+      opacity: 0;
+      transition: all 0.2s ease-in-out;
+      &::before {
+        display: block;
+        position: absolute;
+        content: '';
+        width: 10px;
+        height: 10px;
+        left: -2.5px;
+        top: -1px;
+        background-color: #dff3ef;
+        border: {
+          top: 1px solid $green;
+          left: 1px solid $green
+        }
+        border-top-left-radius: 2px;
+        transform: skewX(15deg);
+      }
+    }
+    &-icon:hover + &-text {
+      opacity: 1;
+    }
+  }
+}
+
+.question-card {
+  grid-row: 1/2;
+  grid-column: 2/3;
+  font-weight: 500;
+  background: {
+    image: url('../img/star.svg');
+    repeat: no-repeat;
+    position: top 1.14rem right 1.29rem;
+    size: 1.29rem;
+  }
+  @include media-breakpoint-down($sm) {
+    grid: {
+      column: 1/3;
+      row: 2/3;
+    }
+  }
+  &__question-word {
+    color: $green;
+  }
+}
+
+.answers-card {
+  grid-row: 2/3;
+  grid-column: 2/3;
+  @include media-breakpoint-down($sm) {
+    grid: {
+      column: 1/3;
+      row: 3/4;
+    }
+  }
+  &__checkbox-card {
+    display: block;
+    height: 100%;
+    border: 1px solid $light-gray {
+      radius: 0.57rem;
+    }
+    padding: 0.71rem;
+    cursor: pointer;
+    &-input {
+      display: none;
+      &:checked + label {
+        box-shadow: $shadow;
+      }
+      &:not(:checked) + label {
+        color: $gray;
+      }
+      &:hover + label {
+        color: $black;
+      }
+    }
+  }
+  &_tile-2-col {
+    display: grid;
+    grid: {
+      template-columns: 1fr 1fr;
+      gap: 1.43rem;
+    }
+    @include media-breakpoint-down($xs) {
+      grid: {
+        template-columns: 1fr;
+      }
+    }
+  }
+}
+
+.progress {
+  &__progress {
+    width: 100%;
+    height: 0.29rem;
+    background-color: $gray;
+    margin-bottom: 1.29rem;
+    &::-webkit-progress-bar  {
+      background-color: $gray;
+    }
+    &::-webkit-progress-value  {
+      background-color: $green;
+    }
+    &::-moz-progress-bar {
+      background-color: $green;
+    }
+  }
+  &__sign {
+    font: {
+      weight: 500;
+      size: 1.43rem;
+    }
+    color: $green;
+    &-span {
+      color: $gray;
+    }
+  }
+}
+
+.button {
+  padding: 1.29rem 3.14rem;
+  border: none {
+    radius: 0.57rem;
+  }
+  font: {
+    weight: 500;
+    size: 1.43rem;
+  }
+  &_green {
+    background-color: $green;
+    color: #fff;
+  }
+}
+
+.test-footer {
+  &__button {
+    @include media-breakpoint-down($xs) {
+      padding: 1rem 2.5rem;
+    }
+    &-wrapper {
+      justify-self: end;
+    }
+  }
+}
