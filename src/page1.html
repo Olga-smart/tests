@@ -2,9 +2,9 @@
 
 <header class="test-header">
   <div class="container test-header__container">
-    <div class="user-menu">
-      <div class="user-menu__avatar">IF</div>
-      <span class="user-menu__name">Фамилия Имя</span>
+    <div class="user-menu js-user-menu">
+      <div class="user-menu__avatar js-user-menu__avatar">IF</div>
+      <span class="user-menu__name js-user-menu__name">Фамилия Имя</span>
       <button class="user-menu__log-out-btn">
         <span class="user-menu__log-out-btn-text">Log out</span>
         <img class="user-menu__log-out-btn-icon" src="img/logout.svg">
@@ -37,27 +37,27 @@
     </div>
     <form class="card answers-card answers-card_tile-2-col">
       <div>
-        <input id="answer1" class="answers-card__checkbox-card-input" type="checkbox" name="1" value="2">
+        <input id="answer1" class="answers-card__checkbox-card-input" type="radio" name="1" value="2">
         <label for="answer1" class="answers-card__checkbox-card">Наибольшее и наименьшее значения функции уравновешивает эмпирический предел последовательности, откуда следует доказываемое равенство.</label> 
       </div>
       <div>
-        <input id="answer2" class="answers-card__checkbox-card-input" type="checkbox" name="2" value="2" checked>
+        <input id="answer2" class="answers-card__checkbox-card-input" type="radio" name="1" value="2" checked>
         <label for="answer2" class="answers-card__checkbox-card">Правда, некоторые специалисты отмечают, что неопределенный интеграл вполне вероятен.</label>  
       </div>
       <div>
-        <input id="answer3" class="answers-card__checkbox-card-input" type="checkbox" name="3" value="3">
+        <input id="answer3" class="answers-card__checkbox-card-input" type="radio" name="1" value="3">
         <label for="answer3" class="answers-card__checkbox-card">Разрыв функции, очевидно, раскручивает косвенный определитель системы линейных уравнений.</label> 
       </div>
       <div>
-        <input id="answer4" class="answers-card__checkbox-card-input" type="checkbox" name="4" value="4">
+        <input id="answer4" class="answers-card__checkbox-card-input" type="radio" name="1" value="4">
         <label for="answer4" class="answers-card__checkbox-card">Лист Мёбиуса продуцирует интеграл по поверхности. Постулат ускоряет экспериментальный лист Мёбиуса.</label> 
       </div>
       <div>
-        <input id="answer5" class="answers-card__checkbox-card-input" type="checkbox" name="5" value="5" checked>
+        <input id="answer5" class="answers-card__checkbox-card-input" type="radio" name="1" value="5" checked>
         <label for="answer5" class="answers-card__checkbox-card">Дифференциальное исчисление программирует многомерный постулат.</label> 
       </div>
       <div>
-        <input id="answer6" class="answers-card__checkbox-card-input" type="checkbox" name="6" value="6">
+        <input id="answer6" class="answers-card__checkbox-card-input" type="radio" name="1" value="6">
         <label for="answer6" class="answers-card__checkbox-card">Умножение двух векторов (векторное), не вдаваясь в подробности, притягивает косвенный детерминант.</label> 
       </div>
     </form>
@@ -66,10 +66,13 @@
 
 <footer class="test-footer">
   <div class="container container_10-2">
-    <div class="progress">
-      <progress class="progress__progress" max="15" value="12"></progress>
-      <span class="progress__sign">прогресс 12
-        <span class="progress__sign-span">/15</span>
+    <div class="progress js-progress">
+      <progress class="progress__progress js-progress__progress" max="15" value="12"></progress>
+      <span class="progress__sign">прогресс 
+        <span class="js-progress__sign-value">12</span>
+        <span class="progress__sign-span">/
+          <span class="js-progress__sign-max">15</span>
+        </span>
       </span>
     </div>
     <div class="test-footer__button-wrapper">
