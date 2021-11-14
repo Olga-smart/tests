@@ -77,9 +77,17 @@ class Tabs {
     this.activeTabPane = document.querySelector(this.activeItem.dataset.target);
     this.previousButton = component.querySelector('.js-tabs__previous-button');
     this.nextButton = component.querySelector('.js-tabs__next-button');
+
+    if (component.classList.contains('js-tabs_vertical')) {
+      this.vertical = true;
+    } else {
+      this.vertical = false;
+    }
+
     this.attachEventHandlers();
     this.activeItem.scrollIntoView({
-      inline: "center"
+      inline: 'center',
+      block: 'center',
     });
   }
 
@@ -98,11 +106,15 @@ class Tabs {
       this.activeTabPane = document.querySelector(target.dataset.target);
       this.activeTabPane.classList.remove('tab-pane_hidden');
     });
-    this.tabList.addEventListener('wheel', (event) => {
-      event.preventDefault();
-      this.tabList.scrollLeft += event.deltaY;
-    });
-    this.previousButton.addEventListener('click', () => {
+
+    if (!this.vertical) {
+      this.tabList.addEventListener('wheel', (event) => {
+        event.preventDefault();
+        this.tabList.scrollLeft += event.deltaY;
+      });
+    }    
+
+    this.previousButton?.addEventListener('click', () => {
       if (this.activeItem === this.firstItem) return;
 
       this.activeItem.classList.remove('tabs__item_active', 'js-tabs__item_active');
@@ -113,7 +125,8 @@ class Tabs {
       this.activeTabPane = document.querySelector(this.activeItem.dataset.target);
       this.activeTabPane.classList.remove('tab-pane_hidden');
     });
-    this.nextButton.addEventListener('click', () => {
+
+    this.nextButton?.addEventListener('click', () => {
       if (this.activeItem === this.lastItem) return;
 
       this.activeItem.classList.remove('tabs__item_active', 'js-tabs__item_active');
@@ -167,6 +180,21 @@ class ModalWindow {
   }
 }
 
+class Burger {
+  constructor(component) {
+    this.component = component;
+    this.menu = document.getElementById(component.dataset.target);
+    this.attachEventHandlers();
+  }
+
+  attachEventHandlers() {
+    this.component.addEventListener('click', () => {
+    this.component.classList.toggle('burger_menu_open');
+    this.menu.classList.toggle('side-menu_open');
+    });
+  }
+}
+
 window.addEventListener('load', () => {
 
   let dropdowns = document.querySelectorAll('.js-dropdown');
@@ -205,6 +233,11 @@ window.addEventListener('load', () => {
   let modals = document.querySelectorAll('.js-modal');
   for (let modal of modals) {
     new ModalWindow(modal);
+  }
+
+  let burgers = document.querySelectorAll('.js-burger');
+  for (let burger of burgers) {
+    new Burger(burger);
   }
  
 });
